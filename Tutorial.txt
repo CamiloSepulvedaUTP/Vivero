@@ -4,6 +4,6 @@
 4. git status para ver archivos nuevos y modificados
 5. git status -s (más resumido)
 6. git add nombreArchivos o carpetas (especifico)
-7. git add . (todos)
+7. git add . (toditos)
 8. git commit -m "comentario"
 
