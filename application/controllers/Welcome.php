@@ -20,11 +20,38 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		if($this->session->userdata('id') != null){
-			echo "tipo loguiado";
+		if($this->session->userdata('UsuarioId') != null){
+
+			$data['cLabores'] = '{"data":' . json_encode($this->db->query("SELECT
+				V.Nombre AS Vivero
+				,L.Fecha
+				,L.Descripcion
+				,P.Nombre AS Producto
+			FROM Labor L
+			LEFT JOIN Producto P ON L.ProductoId = P.ProductoId
+			LEFT JOIN Vivero V ON L.ViveroId = V.ViveroId")->result()) . "}";
+
+			$data['cViveros'] = '{"data":' . json_encode($this->db->query("SELECT
+				CONCAT(P.Nombre,' ',P.Apellido) AS Productor
+				,V.Nombre AS Vivero
+				,M.Nombre AS Municipio
+				,D.Nombre AS Departamento
+			FROM Productor P
+			LEFT JOIN Vivero V ON P.ProductorId = V.ProductorId
+			LEFT JOIN Municipio M ON V.MunicipioId = M.MunicipioId
+			LEFT JOIN Departamento D ON D.DepartamentoId = D.DepartamentoId")->result()) . "}";
+
+			$data['js_adicional'] = array('personalizados/jsInicio.js');
+
+			$data['content_view'] = 'vInicio';
+			$this->load->view('UI/gestion', $data);
 		}else{
-			$this->load->view('login');
+			$this->load->view('vLogin');
 		}
-		// $this->load->view('welcome_message');
+	}
+
+	function cerrarSesion(){
+		$this->session->sess_destroy();
+		redirect(base_url());
 	}
 }
