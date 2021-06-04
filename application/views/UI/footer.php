@@ -46,11 +46,11 @@
 	</div>
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<?= base_url('assets/js/jquery.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/vendor/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="assets/js/vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="<?= base_url('assets/js/vendor/jquery-easing/jquery.easing.min.js') ?>"></script>
 
 	<script type="text/javascript">
 		function base_url(){
@@ -59,25 +59,27 @@
 	</script>
 
 	<!-- Custom scripts for all pages-->
-	<script src="assets/js/sb-admin-2.min.js"></script>
-	<script src="assets/js/global.js"></script>
+	<script src="<?= base_url('assets/js/sb-admin-2.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/global.js') ?>"></script>
 
 	<!-- Page level plugins -->
-	<script src="assets/js/jquery.dataTables.min.js"></script>
-	<script src="assets/js/dataTables.bootstrap4.min.js"></script>
+	<script src="<?= base_url('assets/js/jquery.dataTables.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/dataTables.bootstrap4.min.js') ?>"></script>
 
-	<script src="assets/js/datatables/dataTables.buttons.min.js"></script>
-	<script src="assets/js/datatables/jszip.min.js"></script>
-	<script src="assets/js/datatables/pdfmake.min.js"></script>
-	<script src="assets/js/datatables/vfs_fonts.js"></script>
-	<script src="assets/js/datatables/buttons.html5.min.js"></script>
-	<script src="assets/js/datatables/buttons.print.min.js"></script>
+	<script src="<?= base_url('assets/js/datatables/dataTables.buttons.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/datatables/jszip.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/datatables/pdfmake.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/datatables/vfs_fonts.js') ?>"></script>
+	<script src="<?= base_url('assets/js/datatables/buttons.html5.min.js') ?>"></script>
+	<script src="<?= base_url('assets/js/datatables/buttons.print.min.js') ?>"></script>
+
+	<script src="<?= base_url('assets/js/alertify.min.js') ?>"></script>
 
 	<?php
 	if (count($js_adicional) > 0) {
 		foreach ($js_adicional as $value) {
 			?>
-			<script src="assets/js/<?= $value ?>"></script>
+			<script src="<?= base_url('assets/js/'.$value) ?> "></script>
 			<?php
 		}
 	}
